@@ -1,66 +1,66 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'firebase_options.dart';
+import 'providers/accelerometer.dart';
+import 'pages/chat_page/chat_page.dart';
+import 'pages/home_page/home_page.dart';
+import 'pages/login_page/login_page.dart';
+import 'pages/play_page/play_page.dart';
+import 'pages/profile_self_page/profile_self_page.dart';
+import 'pages/profile_other_page/profile_other_page.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(const ProviderScope(child: Routes()));
+  });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Routes extends ConsumerStatefulWidget {
+  const Routes({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  ConsumerState createState() => _RoutesState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+class _RoutesState extends ConsumerState<Routes> {
+  late StreamSubscription<AccelerometerEvent> _eventListener;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  void initState() {
+    _eventListener = accelerometerEvents.listen((AccelerometerEvent event) {
+      ref.read(accelerometerEvent.notifier).state = event;
     });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _eventListener.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    return MaterialApp(title: 'Lofi Night', routes: {
+      '/': (context) => const LoginPage(),
+      '/HomePage': (context) => const HomePage(),
+      '/ChatPage': (context) => const ChatPage(),
+      '/PlayPage': (context) => const PlayPage(),
+      '/ProfileSelfPage': (context) => const ProfileSelfPage(),
+      '/ProfileOtherPage': (context) => const ProfileOtherPage(),
+    });
   }
 }

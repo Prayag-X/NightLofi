@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799206537321",
+    "project_id": "night-lofi",
+    "storage_bucket": "night-lofi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799206537321:android:e33d14e6848d5a36cf0af8",
+        "android_client_info": {
+          "package_name": "com.example.night_lofi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799206537321-v9qeuh141gv7ri85pje3kik06jl914dm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5ecC2CdJ2v0QlsRRilLwfCziNadP-dSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799206537321-v9qeuh141gv7ri85pje3kik06jl914dm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
