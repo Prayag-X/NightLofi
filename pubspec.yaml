@@ -27,6 +27,8 @@ dev_dependencies:
   flutter_spinkit: ^5.1.0
   flutter_riverpod: ^2.1.1
   sensors_plus: ^2.0.1
+  flutter_easyloading: ^3.0.5
+  liquid_swipe: ^3.0.0
 
   flutter_lints: ^2.0.0
 
@@ -36,6 +38,7 @@ flutter:
     - assets/
     - assets/background_images/
     - assets/logo/
+    - assets/profile/
 
   fonts:
     - family: Inter

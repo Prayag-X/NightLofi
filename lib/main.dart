@@ -4,9 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sensors_plus/sensors_plus.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'firebase_options.dart';
-import 'providers/accelerometer.dart';
+import 'providers/accelerometer_provider.dart';
 import 'pages/chat_page/chat_page.dart';
 import 'pages/home_page/home_page.dart';
 import 'pages/login_page/login_page.dart';
@@ -54,13 +55,16 @@ class _RoutesState extends ConsumerState<Routes> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Lofi Night', routes: {
-      '/': (context) => const LoginPage(),
-      '/HomePage': (context) => const HomePage(),
-      '/ChatPage': (context) => const ChatPage(),
-      '/PlayPage': (context) => const PlayPage(),
-      '/ProfileSelfPage': (context) => const ProfileSelfPage(),
-      '/ProfileOtherPage': (context) => const ProfileOtherPage(),
-    });
+    return MaterialApp(
+        title: 'Lofi Night',
+        builder: EasyLoading.init(),
+        routes: {
+          '/': (context) => const LoginPage(),
+          '/HomePage': (context) => const HomePage(),
+          '/ChatPage': (context) => const ChatPage(),
+          '/PlayPage': (context) => const PlayPage(),
+          '/ProfileSelfPage': (context) => const ProfileSelfPage(),
+          '/ProfileOtherPage': (context) => const ProfileOtherPage(),
+        });
   }
 }

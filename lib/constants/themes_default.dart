@@ -5,5 +5,6 @@ class Themes{
   static const themeLightYellow = Color(0xfff6ff8c);
   static const themeBlue = Color(0xFF4200ff);
   static const themeLightBlue = Color(0xFF8175FF);
-  static const themeDark = Colors.black;
+  static const themeDark = Color(0xFF1E1E1E);
+  static const themeBlack = Colors.black;
 }

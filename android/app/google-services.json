@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "799206537321-jnd15i4qf5j24ir9asq466esiaqqq9bg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.night_lofi",
+            "certificate_hash": "7844857fa6979558e3b40eb56695f7f50fcaa1e0"
+          }
+        },
+        {
           "client_id": "799206537321-v9qeuh141gv7ri85pje3kik06jl914dm.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "799206537321-v9qeuh141gv7ri85pje3kik06jl914dm.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "799206537321-ki2kanudt8hfuv5q6eea6dhd3bgjsd3p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nightLofi"
+              }
             }
           ]
         }

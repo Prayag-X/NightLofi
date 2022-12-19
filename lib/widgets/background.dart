@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/accelerometer.dart';
+import '../providers/accelerometer_provider.dart';
 import '../constants/background_effects.dart';
 
 class Background extends ConsumerWidget {
@@ -10,11 +10,13 @@ class Background extends ConsumerWidget {
     required this.backgroundImage,
     required this.sensitivity,
     required this.blurValue,
+    required this.blackValue,
   }) : super(key: key);
 
   final String backgroundImage;
   final int sensitivity;
   final double blurValue;
+  final double blackValue;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,7 +41,7 @@ class Background extends ConsumerWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blurValue, sigmaY: blurValue),
           child: Container(
-            decoration: BoxDecoration(color: Colors.black.withOpacity(0.2)),
+            decoration: BoxDecoration(color: Colors.black.withOpacity(blackValue)),
           ),
         ),
       ),
