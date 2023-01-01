@@ -29,7 +29,7 @@ class _HomePageNightState extends ConsumerState<HomePageNight> {
         Background(
           backgroundImage: ImageConst.homePageNightImage,
           sensitivity: BackgroundEffects.loginPageSensitivity,
-          blurValue: BackgroundEffects.blurVeryLight,
+          blurValue: BackgroundEffects.blurNone,
           blackValue: BackgroundEffects.blackMedium,
         ),
       ],

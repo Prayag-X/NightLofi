@@ -5,7 +5,10 @@ class BackgroundEffects {
   static const chatPageSensitivity = 5;
   static const maxSensitivity = 10;
   static const animationDuration = 300;
-  static const appBarAnimationDuration = 300;
+  static const appBarAnimationDuration = 600;
+
+  static const appBarOpacityPrimary = 0.5;
+  static const appBarOpacitySecondary = 0.2;
 
   static const blurNone = 0.0;
   static const blurVeryLight = 2.0;

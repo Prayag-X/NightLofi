@@ -25,13 +25,40 @@ class _HomePageLofiState extends ConsumerState<HomePageLofi> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: const [
-        Background(
+      children: [
+        const Background(
           backgroundImage: ImageConst.homePageLofiImage,
           sensitivity: BackgroundEffects.loginPageSensitivity,
-          blurValue: BackgroundEffects.blurVeryLight,
+          blurValue: BackgroundEffects.blurNone,
           blackValue: BackgroundEffects.blackMedium,
         ),
+        // GestureDetector(
+        //   onTap: () {
+        //     print('TAPPEd');
+        //   },
+        //   onTapUp: (v) {
+        //     print('released');
+        //   },
+        //   onPanStart: (v){
+        //     print('TAPPEd');
+        //   },
+        //   onPanEnd: (v) {
+        //     print('released');
+        //   },
+        //   child: Container(
+        //     height: screenSize(context).height,
+        //     width: screenSize(context).width,
+        //     // color: Colors.white.withOpacity(0.4),
+        //     child: Center(
+        //       child: TextButton(
+        //         onPressed: () {
+        //           print("Pressed");
+        //         },
+        //         child: Text("PRESS"),
+        //       ),
+        //     ),
+        //   ),
+        // )
       ],
     );
   }
