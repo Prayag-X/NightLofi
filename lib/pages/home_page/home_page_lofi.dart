@@ -10,6 +10,7 @@ import '../../widgets/loaders.dart';
 import '../../widgets/background.dart';
 import '../../widgets/helper.dart';
 import '../../providers/user_provider.dart';
+import '../../providers/playlist_provider.dart';
 import '../../firebase/authentication.dart';
 
 class HomePageLofi extends ConsumerStatefulWidget {
@@ -23,7 +24,14 @@ class HomePageLofi extends ConsumerStatefulWidget {
 
 class _HomePageLofiState extends ConsumerState<HomePageLofi> {
   @override
+  void initState() {
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final playlistIds = ref.watch(playlistIdProvider);
     return Stack(
       children: [
         const Background(
@@ -32,6 +40,37 @@ class _HomePageLofiState extends ConsumerState<HomePageLofi> {
           blurValue: BackgroundEffects.blurNone,
           blackValue: BackgroundEffects.blackMedium,
         ),
+        Container(
+          height: screenSize(context).height,
+          width: screenSize(context).width,
+          child: playlistIds.when(
+              data: (playlistIds) {
+                print('DONE');
+                print(playlistIds);
+
+                return ListView(
+                  physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                  children: playlistIds.map((e) => Column(
+                    children: [
+                      SizedBox(height: 50,),
+                      Container(
+                          color: Colors.blue,
+                          child: Text(e)
+                      ),
+                    ],
+                  )).toList(),
+                );
+              },
+              error: (_, __) {
+                print("Eroor");
+                print(_);
+                print(__);
+                return Container();
+              },
+              loading: () => Container()
+          ),
+        ),
+
         // GestureDetector(
         //   onTap: () {
         //     print('TAPPEd');

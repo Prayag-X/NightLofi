@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-import '../../custom_package/slidable_bottom_nav_bar/slidable_bottom_app_bar.dart';
 
 import '../../constants/text_styles.dart';
 import '../../constants/texts.dart';
@@ -16,6 +15,7 @@ import '../../firebase/database_users.dart';
 import '../../widgets/loaders.dart';
 import '../../widgets/background.dart';
 import '../../widgets/helper.dart';
+import '../../widgets/bottom_bar/bottom_bar.dart';
 import '../../providers/user_provider.dart';
 import '../../firebase/authentication.dart';
 import 'home_page_lofi.dart';
@@ -88,7 +88,6 @@ class _HomePageState extends ConsumerState<HomePage>
       appBar: appBarShared(),
       body: SlidableBottomAppBar(
         //appearance parameters
-        shape: SlidableBottomAppBarShape.roundedCurved,
         animationCurve: Curves.bounceOut,
         color: colorPrimary.withOpacity(BackgroundEffects.appBarOpacityPrimary),
         colorSecondary:
@@ -96,7 +95,6 @@ class _HomePageState extends ConsumerState<HomePage>
         buttonColor:
             colorSecondary.withOpacity(BackgroundEffects.appBarOpacityPrimary),
         maxHeight: screenSize(context).height / 2,
-        allowShadow: false,
         bottomBarExpandedBody: Column(
           children: const [
             Center(

@@ -7,7 +7,7 @@ import 'package:sensors_plus/sensors_plus.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'firebase_options.dart';
-import 'providers/accelerometer_provider.dart';
+import 'providers/background_provider.dart';
 import 'pages/chat_page/chat_page.dart';
 import 'pages/home_page/home_page.dart';
 import 'pages/login_page/login_page.dart';
